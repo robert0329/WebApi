@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Cobros.Controllers
 {
-    public class ValuesController : ApiController
+    public class CobrosController : ApiController
     {
         Cobros.Models.Cobros[] cobro = new Cobros.Models.Cobros[]{
 
@@ -20,13 +20,13 @@ namespace Cobros.Controllers
        };
 
 
-        public IEnumerable<Cobros.Models.Cobros> GetAllCarro()
+        public IEnumerable<Cobros.Models.Cobros> GetAllCobros()
         {
             return cobro;
         }
 
 
-        public IHttpActionResult GetCarro(int id)
+        public IHttpActionResult Getcobro(int id)
         {
             var cobros = cobro.FirstOrDefault((c) => c.CobroId == id);
             if (cobros != null)
@@ -37,32 +37,6 @@ namespace Cobros.Controllers
             {
                 return NotFound();
             }
-        }
-        // GET api/values
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
         }
     }
 }
